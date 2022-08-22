@@ -2,7 +2,6 @@
 
 ## *Docker is nothing but a platform for running,building and shipping containers.*
 
----
 
 - Before diving into docker it is very important to be crystal clear about the difference between two things that is *`virtual machine`* and *`container`*.
 
