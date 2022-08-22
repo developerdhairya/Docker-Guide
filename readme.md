@@ -15,6 +15,8 @@
 
 - However with docker you can package application,cut-dow OS,dependencies,environment variables,third party libraries and everything an application requires into a docker image and push it on docker hub.
   
+- All instructions for building an image is written into Dockerfile.
+
 - Then you can pull image on production machine and run it as container thus preventing the above mentioned problems.
   
 
