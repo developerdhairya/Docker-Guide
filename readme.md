@@ -9,7 +9,7 @@
 
 - **Container**:A container is a nothing just an operating system virtualization.It is standalone unit of software that packages up code and all dependencies an application will require to run.It provides us an isolated environment for running applications on a single operating system.
 
-- A docker container technically an OS process having its own file system.
+- A docker container technically an OS process having its own file system and all containers share kernel of host OS.
 
 - Before the advent of docker,there often arised situations where an application runs on a developer's machine but fails to run on production machine due to reasons like version mismatch,different configuration settings etc.
 
@@ -22,3 +22,7 @@
 
 - VM is resource intesnsive as it has its own OS and takes a slice of hardware where as containers are lightweight because they are just special types of processes.
 - Time taken to start a container is much less than time taken to start a VM.
+
+### Fun Facts
+- We can't run Windows 10 container on a linux machine but we can run a linux container on a Windows 10 machine.
+- MacOS don't have inbuilt support for containers so docker uses a lightweight linux VM to run linux containers in it.
