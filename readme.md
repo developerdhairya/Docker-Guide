@@ -25,4 +25,4 @@
 
 ### Fun Facts
 - We can't run Windows 10 container on a linux machine but we can run a linux container on a Windows 10 machine.
-- MacOS don't have inbuilt support for containers so docker uses a lightweight linux VM to run linux containers in it.
+- MacOS don't have inbuilt support for containers so docker uses a lightweight linux VM to run linux containers.
