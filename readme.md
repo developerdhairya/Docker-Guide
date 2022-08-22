@@ -17,7 +17,6 @@
   
 - Then you can pull image on production machine and run it as container thus preventing the above mentioned problems.
   
-</br>
 
 ## Why prefer containers over VM's?
 
