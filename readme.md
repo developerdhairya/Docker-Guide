@@ -6,17 +6,15 @@
 
 - **Virtual Machine**:Virtual machine is just an abstration of physical hardware. We can run several isolated virtual machnes on a single physical machine. Suppose if you have a macbook machine you can run both Windows & Linux on top of it using a tool called hypervisor which is a software to create and  manage virtual machines. Some of commonly used hypervisors are Virtual Box and VMware.
 
-- **Container**:A container is a nothing just an operating system virtualization.It is standalone unit of software that packages up code and all dependencies an application will require to run.It provides us an isolated environment for running applications on a single operating system.
+- **Container**:A container is a nothing just an operating system virtualization.It provides us an isolated environment for running applications on a single operating system.A docker container technically an OS process having its own file system provided by docker image and all containers share kernel of host OS.
 
-- A docker container technically an OS process having its own file system and all containers share kernel of host OS.
+- **Image**:A Docker image is a file used to execute code in a Docker container.It consists of cut-dow OS,dependencies,environment variables,third party libraries and everything an application requires to run.
 
-- Before the advent of docker,there often arised situations where an application runs on a developer's machine but fails to run on production machine due to reasons like version mismatch,different configuration settings etc.
+- **Workflow of Docker**: Before the advent of docker,there often arised situations where an application runs on a developer's machine but fails to run on production machine due to reasons like version mismatch,different configuration settings etc.However after advent of docker you can package all essential components required by an apllication into an image and push it on dockerhub and then you can pull on it you production machine and run it inside docker containers.
 
-- However with docker you can package application,cut-dow OS,dependencies,environment variables,third party libraries and everything an application requires into a docker image and push it on docker hub.
-  
-- All instructions for building an image is written into Dockerfile.
 
-- Then you can pull image on production machine and run it as container thus preventing the above mentioned problems.
+- **Dockerfile**:All instructions for building an image is written into Dockerfile.
+
   
 ## Why prefer containers over VM's?
 
@@ -109,20 +107,32 @@
   
 - The main coponents of root directory are-:
   
-  /boot : Contains the boot loader
+`/boot` : Contains the boot loader
 
 `/home` : Contains the home directories of users.
 
 `/bin` : All the executable binaries and commands used by all the users on the system are located here.
 
-/`sbin` : This contains the system executable binaries typically used by system administrators.
+`/sbin` : This contains the system executable binaries typically used by system administrators.
 
 `/lib` : Contains the system libraries that support the binaries in /bin and /sbin.
 
 `/etc` : Contains the configuration files for network, boot-time, etc.
 
-`/dev` : This has the device files i.e. usb, terminal device or any other device attached to the system are shown here.
-
 `/proc` : Contains information about the process running.
 
+`/media` : Mount point for removable media.
+
+`/mnt` : Mount point for temporarily mounted file systems.
+
+`/root` : Home directory for root users.
+
+`/usr` : Multi-user utilities and Applications.
+
+`/dev` : This has the device files i.e. usb, terminal device or any other device attached to the system are shown here.
+
 `/tmp` : This is the temporary directory where many processes create the temporary files required. This is purged each time the machine is booted.
+
+## **Now let's dive deep into  docker**
+
+- 
