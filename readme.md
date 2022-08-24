@@ -26,12 +26,31 @@
 - `COPY` : Copy files/directories from your machine into image.
 - `ADD` : Copy files/directories from your machine and URL's into image.
 
-- `RUN` : Run Commands
+- `RUN` : Run Commands at build time
 - `ENV` : Set Environment Variables
 - `EXPOSE` : Document the port container is listening on.
 - `USER` : Specify the user that should run the application.
-- `CMD` : Set default command/program
-- `ENTRYPOINT` : Set command to be executed at start of container.
+- `CMD` : Run Commands at conatiner run time but these commands can be overridden.
+
+    ```bash
+    #shell form : Command is executed in a seperate shell 
+    # /bin/sh - Linux origional shell program
+    # cmd - Windows origional shell program
+    CMD npm start
+
+    # Exec form : Execute command directly
+    # Recommed beacuse its easier to clean up resources when containers stop
+    CMD ["npm","start"]
+    ```
+
+- `ENTRYPOINT` : Run Commands at conatiner run time than can be overriden by using `--entrypoint` flag.
+  
+  ```bash
+    CMD npm start
+
+    CMD ["npm","start"]
+    ```
+
 
 ### Fun Facts
 
@@ -55,14 +74,13 @@
 
   ```bash
   FROM node:current-alpine3.16
-  WORKDIR /app
-  COPY . .          //add node_modules in .dockerignore
-  RUN npm install
-  EXPOSE 3000
-  RUN addgroup developers && adduser -S -G developer  dhairya   //We donot have useradd in alpine
+  RUN addgroup developers && adduser -S -G developer dhairya   <!-- We donot have useradd in alpine -->
   USER dhairya
+  WORKDIR /app
+  COPY . .          <!-- add node_modules in .dockerignore -->
+  EXPOSE 3000
   ENV API_URL=http://xyz.com
-
+  CMD npm start
   ```
 
 - Build the image from the Dockerfile
@@ -96,6 +114,7 @@
   - `-it` specifies interactive mode.
 
 - The above command will run the node command line.So use this command
+
   ```
     docker run -it hello-react bash // Throw error in alpine linux 
     docker run -it hello-react sh   //Will run successfully in alpine linux 
