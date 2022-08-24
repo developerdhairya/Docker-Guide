@@ -59,6 +59,8 @@
   COPY . .          //add node_modules in .dockerignore
   RUN npm install
   EXPOSE 3000
+  RUN addgroup developers && adduser -S -G developer  dhairya   //We donot have useradd in alpine
+  USER dhairya
   ENV API_URL=http://xyz.com
 
   ```
