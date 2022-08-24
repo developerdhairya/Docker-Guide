@@ -34,10 +34,6 @@
 - `CMD` : Set default command/program
 - `ENTRYPOINT` : Set default command/program
 
-
-
-
-
 ### Fun Facts
 
 - We can't run Windows 10 container on a linux machine but we can run a linux container on a Windows 10 machine.
