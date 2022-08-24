@@ -55,7 +55,12 @@
 
   ```bash
   FROM node:current-alpine3.16
-  COPY 
+  WORKDIR /app
+  COPY . .          //add node_modules in .dockerignore
+  RUN npm install
+  EXPOSE 3000
+  ENV API_URL=http://xyz.com
+
   ```
 
 - Build the image from the Dockerfile
@@ -94,3 +99,9 @@
     docker run -it hello-react sh   //Will run successfully in alpine linux 
   ```
 
+### Fun Facts 2.0
+
+- Like .gitignore we also have .dockerignore
+- We use apk instead of apt in alpine linux.
+- To show all environment variables run `printenv`
+- To print a particular environment variable value run `printenv JAVA_HOME'` or `echo $JAVA_HOME`
