@@ -37,7 +37,8 @@
 
 - We can't run Windows 10 container on a linux machine but we can run a linux container on a Windows 10 machine.
 - MacOS don't have inbuilt support for containers so docker uses a lightweight linux VM to run linux containers.
-- We should never specify user as root user in Dockerfile
+- We should never specify user as root user in Dockerfile.
+- Like .gitignore we also have .dockerignore
 
 **Refer *helper* branch to see get overview of linux and basic docker commands❤️❤️**
 
@@ -67,6 +68,7 @@
   - "hello-react" is the name of the image.
   - `./` specifies the location of Dockerfile.
   - Docker-Client will sets the context of this directory i.e `./` to the Docker-Engine known as BuildContext.
+  - Docker-Engine will not ave access o files and directories outside the BuildContext
 
 - To view all images on the machine use any of the following-:
 
