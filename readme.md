@@ -19,7 +19,6 @@
 - VM is resource intesnsive as it has its own OS and takes a slice of hardware where as containers are lightweight because they are just special types of processes.
 - Time taken to start a container is much less than time taken to start a VM.
 
-
 ## Some Common Dockerfile Instructions
 
 - `FROM` : Specify base image
@@ -50,4 +49,4 @@
   - Run `npx create-react-app`
   - Run `npm start`
 
-<!-- ## Dockerfile Instructions -->
+
