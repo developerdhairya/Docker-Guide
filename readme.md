@@ -174,3 +174,14 @@
   ```bash
     docker tag image1:tag1 image2:tag2
   ```
+
+## Saving & Loading Images
+ - Saving Image
+  ```bash
+  docker image save -o xyz.tar image-name:tag-name
+  ```
+
+   - Loading Image
+  ```bash
+  docker image load -i xyz.tar
+  ```
