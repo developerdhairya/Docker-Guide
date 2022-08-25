@@ -163,3 +163,14 @@
   docker container prune            # to remove stopped containers
   ```
 - Similar commands are there for dangling images.
+
+# Tagging Images
+
+- If you run `docker images` , you will see al images marked with latest tag that is default tag.
+- We should not use "latest" but custom tags in production for easier debugging. Instead we an use build numbers.
+- With same Dockerfile,you can create different images with diferent tags.
+- We always address image as `image-name:tag-name`
+- To tag images-:
+  ```bash
+    docker tag image1:tag1 image2:tag2
+  ```
