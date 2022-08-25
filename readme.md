@@ -137,4 +137,18 @@
  - You will notice that many instructions also came from node base image and brought in several layers.
  - Now,next time when we will build this image, it will reuse the layers of unchanged from the cache.
  - However, when it encounters a changed instruction all the instruction below it has its layers to be rebuilt.
- -  
+ -  So our flow while writing Dockerfile script is-:
+    ![alt text for screen readers](1.png)
+ - So we should the the code-1 with code-2 in our react-app.
+
+    - Code-1
+      ```bash
+        COPY . .
+        npm install
+      ```
+    - Code-2
+      ```bash
+        COPY package*.json ./
+        npm install
+        COPY . .
+      ```
