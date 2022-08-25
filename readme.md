@@ -152,3 +152,14 @@
         npm install
         COPY . .
       ```
+
+# Removing Docker Containers
+
+- Commands-:
+  ```bash
+  docker container rm <containerID>
+  docker rm <containerID>
+  docker rm -f <containerID>        #force removal
+  docker container prune            # to remove stopped containers
+  ```
+
