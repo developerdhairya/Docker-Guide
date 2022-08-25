@@ -115,7 +115,7 @@
 
   ```
   docker run -it hello-react bash // Throw error in alpine linux 
-  docker run -it hello-react sh   //Will run successfully in alpine linux 
+  docker run -it hello-react sh   //App will run successfully in alpine linux 
   ```
 
 ### Fun Facts 2.0
@@ -124,3 +124,17 @@
 - We use apk instead of apt in alpine linux.
 - To show all environment variables run `printenv`
 - To print a particular environment variable value run `printenv JAVA_HOME'` or `echo $JAVA_HOME`
+
+
+# Speeding Up Build
+
+- **Layers** : A docker image is a collection of layers.Its just like a small file system that includes modified files.
+- When docker executes the instructions from a Dockerfile,it create new layers which include the files that were modified as a result of that particular instruction.
+- To see layers of the react app we deployed run
+  ```bash
+  docker history hello-react
+  ```
+ - You will notice that many instructions also came from node base image and brought in several layers.
+ - Now,next time when we will build this image, it will reuse the layers of unchanged from the cache.
+ - However, when it encounters a changed instruction all the instruction below it has its layers to be rebuilt.
+ -  
