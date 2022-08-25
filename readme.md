@@ -31,26 +31,22 @@
 - `EXPOSE` : Document the port container is listening on.
 - `USER` : Specify the user that should run the application.
 - `CMD` : Run Commands at conatiner run time but these commands can be overridden.
+- `ENTRYPOINT` : Run Commands at conatiner run time than can be overriden by using `--entrypoint` flag.
+
+## Shell Form vs Executale Form
+
+- Refer this snippet
 
     ```bash
     #shell form : Command is executed in a seperate shell 
     # /bin/sh - Linux origional shell program
-    # cmd - Windows origional shell program
+    # cmd - Windows original shell program
     CMD npm start
 
     # Exec form : Execute command directly
     # Recommed beacuse its easier to clean up resources when containers stop
     CMD ["npm","start"]
     ```
-
-- `ENTRYPOINT` : Run Commands at conatiner run time than can be overriden by using `--entrypoint` flag.
-  
-  ```bash
-    CMD npm start
-
-    CMD ["npm","start"]
-    ```
-
 
 ### Fun Facts
 
@@ -69,6 +65,8 @@
   - Run `npm i create-react-app`
   - Run `npx create-react-app`
   - Run `npm start`
+
+- After this create a .dockerignorefile and add node_modules to it
 
 - Move to the directory where the react app is located and add the following commands in the Dockerfile
 
@@ -116,8 +114,8 @@
 - The above command will run the node command line.So use this command
 
   ```
-    docker run -it hello-react bash // Throw error in alpine linux 
-    docker run -it hello-react sh   //Will run successfully in alpine linux 
+  docker run -it hello-react bash // Throw error in alpine linux 
+  docker run -it hello-react sh   //Will run successfully in alpine linux 
   ```
 
 ### Fun Facts 2.0
