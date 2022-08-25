@@ -238,3 +238,16 @@
   docker cp <containerID>:/app/log.txt .
   docker cp secret.txt <containerID>:/app
   ``` 
+
+# Some Important docker-compose commands
+
+```
+docker-compose build
+docker-compose build --no-cache
+docker-compose up
+docker-compose up -d
+docker-compose up —build
+docker-compose down
+docker-compose ps
+docker-compose logs
+```
