@@ -125,44 +125,39 @@
 - To show all environment variables run `printenv`
 - To print a particular environment variable value run `printenv JAVA_HOME'` or `echo $JAVA_HOME`
 
-
 # Speeding Up Build
 
 - **Layers** : A docker image is a collection of layers.Its just like a small file system that includes modified files.
 - When docker executes the instructions from a Dockerfile,it create new layers which include the files that were modified as a result of that particular instruction.
 - To see layers of the react app we deployed run
+
   ```bash
   docker history hello-react
   ```
- - You will notice that many instructions also came from node base image and brought in several layers.
- - Now,next time when we will build this image, it will reuse the layers of unchanged from the cache.
- - However, when it encounters a changed instruction all the instruction below it has its layers to be rebuilt.
- -  So our flow while writing Dockerfile script is-:
-    ![alt text for screen readers](1.png)
- - So we should the the code-1 with code-2 in our react-app.
 
-    - Code-1
+- You will notice that many instructions also came from node base image and brought in several layers.
+- Now,next time when we will build this image, it will reuse the layers of unchanged from the cache.
+- However, when it encounters a changed instruction all the instruction below it has its layers to be rebuilt.
+- So our flow while writing Dockerfile script is-:
+    ![alt text for screen readers](1.png)
+- So we should the the code-1 with code-2 in our react-app.
+
+  - Code-1
+
       ```bash
         COPY . .
         npm install
       ```
-    - Code-2
+
+  - Code-2
+
       ```bash
         COPY package*.json ./
         npm install
         COPY . .
       ```
 
-# Removing Docker Containers
 
-- Commands-:
-  ```bash
-  docker container rm <containerID>
-  docker rm <containerID>
-  docker rm -f <containerID>        #force removal
-  docker container prune            # to remove stopped containers
-  ```
-- Similar commands are there for dangling images.
 
 # Tagging Images
 
@@ -171,17 +166,75 @@
 - With same Dockerfile,you can create different images with diferent tags.
 - We always address image as `image-name:tag-name`
 - To tag images-:
+
   ```bash
     docker tag image1:tag1 image2:tag2
   ```
 
 ## Saving & Loading Images
- - Saving Image
+
+- Saving Image
+
   ```bash
   docker image save -o xyz.tar image-name:tag-name
   ```
 
-   - Loading Image
+- Loading Image
+
   ```bash
   docker image load -i xyz.tar
   ```
+
+# Containers Commands
+
+- ## Removing Containers
+  - Similar commands are there for dangling images.
+  ```bash
+  docker container rm <containerID>
+  docker rm <containerID>
+  docker rm -f <containerID>        #force removal
+  docker container prune            # to remove stopped containers
+  ```
+- ## Running Containers
+  ```bash
+    docker run <image>
+    docker run -d <image>              # run in the background
+    docker run —name <name> <image>    # to give a custom name
+    docker run —p 3000:3000 <image>    # to publish a port HOST:CONTAINER
+  ```
+- ## Listing Containers
+  ```bash
+      docker ps# to list running containers
+      docker ps -a   # to list all containers
+  ```
+
+- ## View Logs
+  ```bash
+    docker logs <containerID>
+    docker logs -f <containerID>       # to follow the log
+    docker logs —t <containerID>       # to add timestamps
+    docker logs —n 10 <containerID>    # to view the last 10 lines
+  ```
+
+- ## Executing Commands in running containers
+  ```bash
+  docker exec <containerID> <cmd>
+  docker exec -it <containerID> sh   # to start a shell
+  ``` 
+
+- ## Starting and stopping containers
+  ```bash
+  docker stop <containerID> 
+  docker start <containerID
+  ``` 
+
+- ## Sharing source code with containers
+  ```bash
+  docker run -v $(pwd):/app <image>
+  ```
+
+- ## Copying files beween host & containers
+  ```bash
+  docker cp <containerID>:/app/log.txt .
+  docker cp secret.txt <containerID>:/app
+  ``` 
