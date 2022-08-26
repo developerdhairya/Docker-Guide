@@ -157,8 +157,6 @@
         COPY . .
       ```
 
-
-
 # Tagging Images
 
 - If you run `docker images` , you will see al images marked with latest tag that is default tag.
@@ -196,6 +194,7 @@
   docker container prune            # to remove stopped containers
   ```
 - ## Running Containers
+  
   ```bash
     docker run <image>
     docker run -d <image>              # run in the background
@@ -203,12 +202,14 @@
     docker run —p 3000:3000 <image>    # to publish a port HOST:CONTAINER
   ```
 - ## Listing Containers
+  
   ```bash
       docker ps# to list running containers
       docker ps -a   # to list all containers
   ```
 
 - ## View Logs
+  
   ```bash
     docker logs <containerID>
     docker logs -f <containerID>       # to follow the log(realtime)
@@ -217,6 +218,7 @@
   ```
 
 - ## Executing Commands in running containers
+  
   ```bash
   docker exec <containerID> <cmd>
   docker exec -it <containerID> sh   # to start a shell
@@ -225,25 +227,37 @@
     -  You can start in interactive mode using `-it`.
 
 - ## Starting and stopping containers
+  
   ```bash
   docker stop <containerID> 
   docker start <containerID
-  ``` 
+  ```
 
 - ## Sharing source code with containers
+  
   ```bash
   docker run -v $(pwd):/app <image>
   ```
 
 - ## Copying files beween host & containers
+  
   ```bash
   docker cp <containerID>:/app/log.txt .
   docker cp secret.txt <containerID>:/app
-  ``` 
+  ```
+
+- ## Volumes
+  
+  ```bash
+  docker volume ls
+  docker volume create app-data
+  docker volume inspect app-data
+  docker run -v app-data:/app/data <image>
+  ```
 
 # Some Important docker-compose commands
 
-```
+```bash
 docker-compose build
 docker-compose build --no-cache
 docker-compose up
@@ -253,3 +267,4 @@ docker-compose down
 docker-compose ps
 docker-compose logs
 ```
+
