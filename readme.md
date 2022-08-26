@@ -222,6 +222,7 @@
   docker exec -it <containerID> sh   # to start a shell
   ``` 
     -  First time the commands will run in the current working directory set in dockerfile.
+    -  You can start in interactive mode using `-it`.
 
 - ## Starting and stopping containers
   ```bash
