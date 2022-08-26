@@ -211,7 +211,7 @@
 - ## View Logs
   ```bash
     docker logs <containerID>
-    docker logs -f <containerID>       # to follow the log
+    docker logs -f <containerID>       # to follow the log(realtime)
     docker logs —t <containerID>       # to add timestamps
     docker logs —n 10 <containerID>    # to view the last 10 lines
   ```
