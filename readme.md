@@ -25,7 +25,7 @@
 - `FROM` : Specify base image
 - `WORKDIR` : Set current working directory image
 - `COPY` : Copy files/directories from your machine into image.
-- `ADD` : Copy files/directories from your machine and URL's into image.
+- `ADD` : Copy files/directories from your machine ,URL's and tar archives into image.
 
 - `RUN` : Run Commands at build time
 - `ENV` : Set Environment Variables
